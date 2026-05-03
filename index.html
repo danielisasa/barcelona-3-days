@@ -15,7 +15,8 @@
 
     nav { padding:28px 48px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); z-index:100; }
     .nav-title { font-family:'Playfair Display',serif; font-size:15px; }
-    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links { display:flex; gap:28px; list-style:none; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+    .nav-links::-webkit-scrollbar { display:none; }
     .nav-links a { font-size:12px; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:var(--gray); text-decoration:none; transition:color .2s; }
     .nav-links a:hover { color:var(--black); }
 
@@ -200,9 +201,14 @@
   <div class="nav-title">Barcelona, Three Days</div>
   <ul class="nav-links">
     <li><a href="#tips">Tips</a></li>
+    <li><a href="#apps">Apps</a></li>
+    <li><a href="#phrases">Phrases</a></li>
+    <li><a href="#checklist">Checklist</a></li>
     <li><a href="#day1">Day 1</a></li>
     <li><a href="#day2">Day 2</a></li>
     <li><a href="#day3">Day 3</a></li>
+    <li><a href="#tipping">Tipping</a></li>
+    <li><a href="#food">Food</a></li>
     <li><a href="#restaurants">Restaurants</a></li>
     <li><a href="#safety">Safety</a></li>
   </ul>
