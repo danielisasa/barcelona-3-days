@@ -114,7 +114,7 @@
     .food-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
     .food-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
     .food-card { background:#fafaf8; border:1px solid var(--border); margin:-1px 0 0 -1px; overflow:hidden; }
-    .food-emoji { font-size:36px; padding:20px 20px 0; display:block; }
+    .food-img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; filter:brightness(0.92) contrast(1.05); }
     .food-body { padding:12px 20px 20px; }
     .food-name { font-family:'Playfair Display',serif; font-size:17px; font-weight:400; color:var(--black); margin-bottom:6px; }
     .food-cat { font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
@@ -539,7 +539,7 @@
   </div>
   <div class="food-grid">
     <div class="food-card">
-      <span class="food-emoji">🍅</span>
+      <img class="food-img" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&h=450&fit=crop&auto=format&q=80" alt="Pa amb tomàquet" loading="lazy">
       <div class="food-body">
         <div class="food-cat">Starter · Catalan classic</div>
         <div class="food-name">Pa amb tomàquet</div>
@@ -548,7 +548,7 @@
       </div>
     </div>
     <div class="food-card">
-      <span class="food-emoji">🥔</span>
+      <img class="food-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=600&h=450&fit=crop&auto=format&q=80" alt="Patatas bravas" loading="lazy">
       <div class="food-body">
         <div class="food-cat">Tapa · Everywhere</div>
         <div class="food-name">Patatas bravas</div>
@@ -557,7 +557,7 @@
       </div>
     </div>
     <div class="food-card">
-      <span class="food-emoji">🫓</span>
+      <img class="food-img" src="https://images.unsplash.com/photo-1575467678930-c7acd65d6470?w=600&h=450&fit=crop&auto=format&q=80" alt="Croquetes de jamón" loading="lazy">
       <div class="food-body">
         <div class="food-cat">Tapa · Bar snack</div>
         <div class="food-name">Croquetes</div>
@@ -566,7 +566,7 @@
       </div>
     </div>
     <div class="food-card">
-      <span class="food-emoji">🥂</span>
+      <img class="food-img" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&h=450&fit=crop&auto=format&q=80" alt="Vermut aperitif" loading="lazy">
       <div class="food-body">
         <div class="food-cat">Drink · Pre-lunch ritual</div>
         <div class="food-name">Vermut</div>
@@ -575,7 +575,7 @@
       </div>
     </div>
     <div class="food-card">
-      <span class="food-emoji">🥘</span>
+      <img class="food-img" src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=600&h=450&fit=crop&auto=format&q=80" alt="Fideuà amb marisc" loading="lazy">
       <div class="food-body">
         <div class="food-cat">Main · Seafood</div>
         <div class="food-name">Fideuà</div>
@@ -584,7 +584,7 @@
       </div>
     </div>
     <div class="food-card">
-      <span class="food-emoji">🍮</span>
+      <img class="food-img" src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=600&h=450&fit=crop&auto=format&q=80" alt="Crema catalana" loading="lazy">
       <div class="food-body">
         <div class="food-cat">Dessert · Local classic</div>
         <div class="food-name">Crema catalana</div>
@@ -593,7 +593,7 @@
       </div>
     </div>
     <div class="food-card">
-      <span class="food-emoji">🥙</span>
+      <img class="food-img" src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&h=450&fit=crop&auto=format&q=80" alt="Pintxos at a bar" loading="lazy">
       <div class="food-body">
         <div class="food-cat">Snack · Basque-style</div>
         <div class="food-name">Pintxos</div>
@@ -602,7 +602,7 @@
       </div>
     </div>
     <div class="food-card">
-      <span class="food-emoji">🍷</span>
+      <img class="food-img" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=450&fit=crop&auto=format&q=80" alt="Copa de cava" loading="lazy">
       <div class="food-body">
         <div class="food-cat">Drink · At any bar</div>
         <div class="food-name">Cava</div>
@@ -611,7 +611,7 @@
       </div>
     </div>
     <div class="food-card">
-      <span class="food-emoji">🐟</span>
+      <img class="food-img" src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&h=450&fit=crop&auto=format&q=80" alt="Boquerones en vinagre" loading="lazy">
       <div class="food-body">
         <div class="food-cat">Tapa · La Barceloneta</div>
         <div class="food-name">Boquerones &amp; anchoas</div>
