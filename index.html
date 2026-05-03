@@ -74,6 +74,30 @@
     footer p { font-size:13px; color:var(--gray); }
     footer a { color:var(--gray); }
 
+
+    /* PHOTOS */
+    .photo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; border-top:1px solid var(--border); }
+    .photo-grid img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; filter:brightness(.97); transition:filter .2s; }
+    .photo-grid img:hover { filter:brightness(1.04); }
+
+    /* MAP */
+    .map-wrap { border-top:1px solid var(--border); }
+    .map-wrap iframe { display:block; width:100%; height:440px; border:none; }
+    .map-label { padding:14px 48px; font-size:11px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--gray); border-bottom:1px solid var(--border); }
+
+    /* PRECAUTIONS */
+    .precautions { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .precautions-intro p { font-size:14px; color:var(--gray); line-height:1.65; margin-top:12px; }
+    .precaution-list { display:flex; flex-direction:column; gap:20px; }
+    .precaution { display:flex; gap:20px; align-items:flex-start; padding:20px 24px; background:#fafaf8; border:1px solid var(--border); border-left:3px solid var(--accent); }
+    .precaution-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
+    .precaution h3 { font-size:13px; font-weight:500; letter-spacing:0.05em; margin-bottom:6px; }
+    .precaution p { font-size:14px; color:var(--gray); line-height:1.65; }
+    .precaution.high { border-left-color:#b85c38; }
+    .precaution.high h3 { color:#b85c38; }
+
+    @media(max-width:900px){ .photo-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:768px){ .precautions{grid-template-columns:1fr;gap:32px;padding:48px 24px;} .map-label{padding:12px 24px;} }
     @media(max-width:1024px){ .resto-grid{grid-template-columns:repeat(2,1fr);} }
     @media(max-width:768px){
       .restaurants{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
@@ -100,6 +124,7 @@
     <li><a href="#day2">Day 2</a></li>
     <li><a href="#day3">Day 3</a></li>
     <li><a href="#restaurants">Restaurants</a></li>
+    <li><a href="#safety">Safety</a></li>
   </ul>
 </nav>
 
@@ -146,6 +171,17 @@
   </div>
 </section>
 
+
+<div class="photo-grid">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNjnmWJRQidYzSya1ILuETZL-cb_RjYZ_DadvIx_EOKwuw3ULum4FbHPzdM77RiNIPVdFCF4CxCaKG1kmraMuiOaL3n-o0npYLUp6os8vvfw3GLwIDiuo4ebIpuH5RfVfbCQez_kjqcPl6hg78=s800-w600-h400" alt="Sagrada Família" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/places/ANXAkqHTQfoQXF2brrbbudjuQUzA46CihFULJIAY4-XkPzcl3noUOJ-pEEfQcpxhQqHk1RIWDP_efQYs3aiUshcZi5cqMa_wnZNt5Eo=s800-w600-h400" alt="Hospital de la Santa Creu i Sant Pau" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOcXy4bq81BqAjwe8lNtJ714VKGEBMNqCCi8ExrB7PE1fmiOk0e6KN3JRh0ZmWHCXAEy2g-doaUJ5aW_EMZXA25BaITKgKydYcG9-OW05wKbIjbmFtM5H-5GeNTsOP7B7gXqJ-orfnmyLkDD70=s800-w600-h400" alt="Park Güell" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOLQD4_2jbrs07IvRr5OhnIV85Nqkf5tyzcQAJWTooZp0bJeLninXHBkpHD1YdUSmdP3Cygi98u6BWAYLC3aeVprFCG2VPXYeUTQWi7-Bh0Nb-zrc0zgRgTv3B-UfZfeVTMInjtJTYMBls2=s800-w600-h400" alt="La Boqueria market" loading="lazy">
+</div>
+<div class="map-wrap">
+  <div class="map-label">Day 1 — Route map</div>
+  <iframe src="https://www.google.com/maps/d/embed?mid=1p1xppUDbPqAiKqnx1Ew2mqdfNZRRtvI&ll=41.4036%2C2.1744&z=14" allowfullscreen loading="lazy"></iframe>
+</div>
 <div class="pull-quote"><p class="section-label">Day 1</p><blockquote>"The Gothic Quarter feels like the city has been here forever — and it has."</blockquote></div>
 
 <section class="day" id="day2">
@@ -165,6 +201,18 @@
   </div>
 </section>
 
+
+<div class="photo-grid">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPA6kWhR_apHGnJ-V39iHrj21g2j2DSFCJZpfkv-kk8cKF9Zp_dtFThv3gtex2EkmaVPVriBEKyZM4iGTRsoKH2tGC3NixSU06h7McGWektOq1wX_9YQQRX8AFsZE40PzNpHhvHA-UDjEtuU41vLE3AaQ=s800-w600-h400" alt="La Pedrera rooftop" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPBVMtIEy-6s25YMIvYtQO-RPKdZCjiNOgPP-HNVoyR2X2iY1k_04VDC29ZZYRfHyOZ58Q6vYpzIwQ6Je25QFCx_T1bl6VuxCLL6Y1YWGOyOY4h8p0SnyvNRaOxa6w_p-RXSyPoEA=s800-w600-h400" alt="Casa Batlló" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNw3s8Pd5OnliSMml61Juh7UyrmXLkZyfvAkvQ-K4Jal9x6JNMpOWMIXCRh4LYk-yE5BsrstMoBoQ6nbqcco2DVkH5lM_r6GpbE2n6WGtgMPeh9WcNyOR7-rIsplfMn9bF8XS_PHzRLkEhZGQ=s800-w600-h400" alt="Palau de la Música Catalana" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOv0yN1vEEzF36ke4QPLmSj0F_6WU9tIRSnIq5nL6ny7KAegrIwqOLCx8NJ8WzHIAPV303Fr3sdJF88N_qBvp4JlKVQKImztyzOl19QZILHIw_YLD0PUTEEMXhv-wX1eaqT7iCh_sD1L5hp3g=s800-w600-h400" alt="Basílica de Santa María del Mar" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMhCDYkL4ZljOMf2n_x7rw8j2JjHXwRRRcILwjI7gZM0ampY1O_X9bcCZ0AfveOgJXyPa5HVU-NeKUny-nflfoc7znGmYbITbwzoGNuaQrEBpwTDkM9Wwi6RbTZl-1nOMNm-iEuOr3X6DqRTPX0nXq_-w=s800-w600-h400" alt="Bunkers del Carmel panoramic view" loading="lazy">
+</div>
+<div class="map-wrap">
+  <div class="map-label">Day 2 — Route map</div>
+  <iframe src="https://www.google.com/maps/d/embed?mid=1p1xppUDbPqAiKqnx1Ew2mqdfNZRRtvI&ll=41.3917%2C2.1749&z=14" allowfullscreen loading="lazy"></iframe>
+</div>
 <div class="pull-quote"><p class="section-label">Day 2</p><blockquote>"At sunset from the Bunkers, the whole city is laid out below you like a map."</blockquote></div>
 
 <section class="day" id="day3">
@@ -182,6 +230,62 @@
     <div class="stop"><div class="stop-time">3:00 pm</div><div class="stop-body"><div class="stop-name">Montjuïc by cable car</div><p class="stop-desc">Return to Port Vell and take the Telefèric de Montjuïc up the mountain. Pre-book the ticket. At the top: Montjuïc Castle, a 300-year-old fortress with panoramic views of the entire city and coast.</p></div></div>
     <div class="stop"><div class="stop-time">5:00 pm</div><div class="stop-body"><div class="stop-name">Olympic Ring &amp; MNAC</div><p class="stop-desc">A short walk from the castle leads to the 1992 Olympic Ring — Estadio Olímpico, Palau Sant Jordi, Calatrava tower. The route ends at the National Palace, home to the MNAC. The free outdoor terraces have spectacular views.</p></div></div>
     <div class="stop"><div class="stop-time">9:00 pm</div><div class="stop-body"><div class="stop-name">Font Màgica &amp; Plaça d'Espanya</div><p class="stop-desc">Ride the escalators down to the Magic Fountain. After dark, a free show of water, music, and light begins — one of Barcelona's most memorable experiences. Walk to Plaça d'Espanya for a final dinner.</p><div class="stop-tip">→ Dinner: Kurai (Japanese) or Arrocería Las Arenas (Mediterranean).</div></div></div>
+  </div>
+</section>
+
+<div class="photo-grid">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNnlX_Ln9QsfpJndpLBGX5kK0wChAImTKgyzqHTvgI3jTrv4mlRWszosFGcMWLBD3SUKXivsOhDy8s3E5oWNfK_fSvQMrP63qC0hO0JuykHMNakNST0t_BKvF0CbHEm7CL7zpvkjqzzG-hnyw=s800-w600-h400" alt="Palau Güell" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNqYp6imW_Krxbe0APUc8ZEVBkkC0k45ljPNoGcBa94uZXCQjUt4ghn07ual4WWZawJdy5qGw4ppFNDtunkS14UTRgfIybXOZV5lIoEETVGPmDAKwr3yyK6id0YEHhlDTpZCraUbowQqVhXRsPkcrzgzg=s800-w600-h400" alt="Barceloneta beach" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNQSd07IOR3TplUoCs6jhKjaju_O-AywU1GZQqUNwrO8eXmUq8M3WJ0lm1nYf1Mi240JpVKzAb4IztJX2TQfpod9ItaL_eqygPnfDjXOtkjVuNKEmDIxWfdywAFJTQBJWqJP9tsD8h78nGx=s800-w600-h400" alt="Montjuïc Castle" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZORK2F29ec43OyiYlXDPtghFPCND4qymWmUJ3qONDHdoucdmGNmnV8G40NJLKsVOpTPeFRPkZy8LquhwHyachmrPCsLTd2DSgFTP8jyp0UUlty3zKOb5UKGcmXpdyn2THfpjc4AHuz3DT8C=s800-w600-h400" alt="MNAC National Palace" loading="lazy">
+  <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOMs4hRhj0n8cGC7W7pBny_l7vl-HMBhdat10-b1xmXolYJXv0Qeu49Yz5f98byx9X6m2bD5KHCT_RVYTJ6lxQ6uDs5514tHRmsNjxH4pWxt84MhCTFxd7UxM1h6xMkrLQbt_652sQf2EcD-H8=s800-w600-h400" alt="Font Màgica de Montjuïc" loading="lazy">
+</div>
+<div class="map-wrap">
+  <div class="map-label">Day 3 — Route map</div>
+  <iframe src="https://www.google.com/maps/d/embed?mid=1p1xppUDbPqAiKqnx1Ew2mqdfNZRRtvI&ll=41.3789%2C2.1742&z=13" allowfullscreen loading="lazy"></iframe>
+</div>
+
+<section class="precautions" id="safety">
+  <div class="precautions-intro">
+    <p class="section-label">Safety</p>
+    <p>Barcelona is a safe city, but like any major tourist destination it has petty crime. A few simple precautions will keep your trip worry-free.</p>
+  </div>
+  <div class="precaution-list">
+    <div class="precaution high">
+      <div class="precaution-icon">⚠️</div>
+      <div>
+        <h3>Pickpockets — high-risk areas</h3>
+        <p>La Barceloneta, El Raval, and the Gothic Quarter are the three neighborhoods where pickpocketing is most common — particularly on busy streets and at night. Keep your phone and wallet in a front pocket or zipped bag, and never leave anything on a table or chair. Bag snatching from motorcycles also occurs on Las Ramblas.</p>
+      </div>
+    </div>
+    <div class="precaution">
+      <div class="precaution-icon">🎒</div>
+      <div>
+        <h3>On Las Ramblas and in crowded markets</h3>
+        <p>La Boqueria and Las Ramblas are prime spots for distraction theft. Watch out for strangers who bump into you, spill something on you, or ask you to sign a petition — these are common setups. Keep your bag in front of you and be aware of your surroundings.</p>
+      </div>
+    </div>
+    <div class="precaution">
+      <div class="precaution-icon">🚇</div>
+      <div>
+        <h3>On the metro</h3>
+        <p>The metro is generally safe but be alert at busy stations like Liceu, Barceloneta, and Diagonal. Hold your bag in front of you when doors open and close. Be careful with phones on the platform — snatching through closing doors does happen.</p>
+      </div>
+    </div>
+    <div class="precaution">
+      <div class="precaution-icon">🏖️</div>
+      <div>
+        <h3>At the beach</h3>
+        <p>Never leave valuables unattended on the beach, even for a quick swim. Thieves work quickly and in teams. Use a waterproof pouch for your phone and cards, and leave passports and extra cash at your accommodation.</p>
+      </div>
+    </div>
+    <div class="precaution">
+      <div class="precaution-icon">🆘</div>
+      <div>
+        <h3>Emergency numbers</h3>
+        <p>General emergency: <strong>112</strong>. Local police (Mossos d'Esquadra): <strong>088</strong>. Tourist police (for reporting theft): Rambla 43, open 24h. If your passport is stolen, contact your nearest consulate immediately.</p>
+      </div>
+    </div>
   </div>
 </section>
 
