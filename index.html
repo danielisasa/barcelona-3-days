@@ -58,6 +58,79 @@
     .pull-quote { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; align-items:center; }
     .pull-quote blockquote { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,30px); font-style:italic; color:var(--black); line-height:1.45; }
 
+
+    /* APPS */
+    .apps-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .apps-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+    .app-card { display:flex; flex-direction:column; gap:10px; padding:20px 16px; background:#fafaf8; border:1px solid var(--border); border-radius:2px; text-align:center; transition:background .15s; }
+    .app-card:hover { background:#f0eeea; }
+    .app-icon { font-size:28px; }
+    .app-name { font-size:13px; font-weight:500; color:var(--black); line-height:1.3; }
+    .app-desc { font-size:12px; color:var(--gray); line-height:1.5; flex:1; }
+    .app-links { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; }
+    .app-links a { font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); text-decoration:none; border:1px solid rgba(184,92,56,0.3); padding:3px 8px; border-radius:2px; }
+
+    /* PHRASES */
+    .phrases-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .phrase-table { width:100%; border-collapse:collapse; }
+    .phrase-table thead tr { border-bottom:1px solid var(--border); }
+    .phrase-table th { font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--gray); padding:8px 0; text-align:left; }
+    .phrase-table th:last-child { text-align:right; }
+    .phrase-table td { padding:14px 0; border-bottom:1px solid var(--border); vertical-align:top; }
+    .phrase-table tr:last-child td { border-bottom:none; }
+    .phrase-es { font-family:'Playfair Display',serif; font-size:16px; font-weight:400; color:var(--black); padding-right:24px; }
+    .phrase-ph { font-size:13px; color:var(--accent); letter-spacing:0.03em; padding-right:24px; }
+    .phrase-en { font-size:13px; color:var(--gray); text-align:right; }
+
+    /* CHECKLIST */
+    .checklist-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .checklist-intro p { font-size:14px; color:var(--gray); line-height:1.65; margin-top:12px; }
+    .checklist-cols { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+    .checklist-group { }
+    .checklist-group h3 { font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--gray); padding:0 0 12px; border-bottom:1px solid var(--border); margin-bottom:0; }
+    .checklist-item { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); }
+    .checklist-item:last-child { border-bottom:none; }
+    .checklist-item input[type=checkbox] { margin-top:2px; flex-shrink:0; width:16px; height:16px; accent-color:var(--accent); cursor:pointer; }
+    .checklist-item label { font-size:14px; color:var(--black); cursor:pointer; line-height:1.5; }
+    .checklist-item label span { display:block; font-size:12px; color:var(--gray); margin-top:2px; }
+    .checklist-item input:checked + label { color:var(--gray); text-decoration:line-through; text-decoration-color:var(--accent); }
+    .checklist-progress { margin-top:20px; display:flex; align-items:center; gap:12px; }
+    .progress-bar { flex:1; height:3px; background:var(--border); border-radius:2px; }
+    .progress-fill { height:100%; background:var(--accent); border-radius:2px; transition:width .3s; }
+    .progress-label { font-size:12px; color:var(--gray); white-space:nowrap; }
+
+    /* TIPPING */
+    .tipping-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .tip-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .tip-venue { background:#fafaf8; border:1px solid var(--border); margin:-1px 0 0 -1px; padding:20px 22px; }
+    .tip-venue-icon { font-size:20px; margin-bottom:10px; }
+    .tip-venue-name { font-size:13px; font-weight:500; color:var(--black); margin-bottom:6px; }
+    .tip-venue-amount { font-family:'Playfair Display',serif; font-size:22px; color:var(--accent); margin-bottom:6px; }
+    .tip-venue-note { font-size:12px; color:var(--gray); line-height:1.5; }
+    .tip-note-box { margin-top:20px; grid-column:1/-1; background:#fafaf8; border:1px solid var(--border); border-left:3px solid var(--accent); padding:16px 20px; font-size:14px; color:var(--gray); line-height:1.65; }
+
+    /* FOOD */
+    .food-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .food-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .food-card { background:#fafaf8; border:1px solid var(--border); margin:-1px 0 0 -1px; overflow:hidden; }
+    .food-emoji { font-size:36px; padding:20px 20px 0; display:block; }
+    .food-body { padding:12px 20px 20px; }
+    .food-name { font-family:'Playfair Display',serif; font-size:17px; font-weight:400; color:var(--black); margin-bottom:6px; }
+    .food-cat { font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+    .food-desc { font-size:13px; color:var(--gray); line-height:1.6; }
+    .food-order { margin-top:8px; font-size:12px; color:var(--black); font-weight:400; }
+    .food-order::before { content:"→ Say: "; color:var(--accent); }
+
+    @media(max-width:900px){
+      .apps-grid{grid-template-columns:repeat(3,1fr);}
+      .tip-grid,.food-grid{grid-template-columns:repeat(2,1fr);}
+      .checklist-cols{grid-template-columns:1fr;}
+    }
+    @media(max-width:768px){
+      .apps-section,.phrases-section,.checklist-section,.tipping-section,.food-section{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
+      .apps-grid{grid-template-columns:repeat(2,1fr);}
+      .tip-grid,.food-grid{grid-template-columns:1fr;}
+    }
     /* RESTAURANTS */
     .restaurants { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
     .resto-intro p { font-size:14px; color:var(--gray); line-height:1.65; margin-top:12px; }
@@ -160,6 +233,102 @@
   </div>
 </section>
 
+
+<section class="apps-section" id="apps">
+  <div>
+    <p class="section-label">Download before you go</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:400;margin-top:12px;letter-spacing:-0.01em;">Essential<br><em style="color:var(--gray);">Apps</em></h2>
+  </div>
+  <div class="apps-grid">
+    <div class="app-card">
+      <div class="app-icon">🗺️</div>
+      <div class="app-name">Citymapper</div>
+      <div class="app-desc">Best metro & bus navigation in Barcelona. Real-time departures, step-by-step directions, and offline mode.</div>
+      <div class="app-links"><a href="https://apps.apple.com/app/citymapper/id469463298" target="_blank">App Store</a><a href="https://play.google.com/store/apps/details?id=com.citymapper.app.release" target="_blank">Google Play</a></div>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">📸</div>
+      <div class="app-name">Google Translate</div>
+      <div class="app-desc">Point your camera at any Spanish menu and it translates instantly. Download the Spanish language pack for offline use.</div>
+      <div class="app-links"><a href="https://apps.apple.com/app/google-translate/id414706506" target="_blank">App Store</a><a href="https://play.google.com/store/apps/details?id=com.google.android.apps.translate" target="_blank">Google Play</a></div>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">🍽️</div>
+      <div class="app-name">TheFork</div>
+      <div class="app-desc">Book restaurant tables in advance — essential for Barcelona's best spots. Often offers discounts for off-peak reservations.</div>
+      <div class="app-links"><a href="https://apps.apple.com/app/thefork-restaurant-bookings/id460177819" target="_blank">App Store</a><a href="https://play.google.com/store/apps/details?id=com.lafourchette.lafourchette" target="_blank">Google Play</a></div>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">🚌</div>
+      <div class="app-name">Moovit</div>
+      <div class="app-desc">Great backup for public transit. Shows all bus, metro, and tram options with live tracking and multi-modal routes.</div>
+      <div class="app-links"><a href="https://apps.apple.com/app/moovit-transit-navigation/id498477945" target="_blank">App Store</a><a href="https://play.google.com/store/apps/details?id=com.tranzmate" target="_blank">Google Play</a></div>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">🚗</div>
+      <div class="app-name">Uber & Cabify</div>
+      <div class="app-desc">Both work well in Barcelona. Cabify is local and often cheaper. Use for late nights, luggage days, or reaching Montjuïc.</div>
+      <div class="app-links"><a href="https://apps.apple.com/app/uber/id368677368" target="_blank">Uber</a><a href="https://apps.apple.com/app/cabify/id476087557" target="_blank">Cabify</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="phrases-section" id="phrases">
+  <div>
+    <p class="section-label">Speak like a local</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:400;margin-top:12px;letter-spacing:-0.01em;">Spanish<br><em style="color:var(--gray);">Phrases</em></h2>
+    <p style="font-size:13px;color:var(--gray);margin-top:16px;line-height:1.65;">Caps = stressed syllable. Locals will love that you tried.</p>
+  </div>
+  <table class="phrase-table">
+    <thead><tr><th>Spanish</th><th>Pronunciation</th><th style="text-align:right">Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="phrase-es">Hola / Buenos días</td><td class="phrase-ph">OH-lah / BWAY-nos DEE-ahs</td><td class="phrase-en">Hello / Good morning</td></tr>
+      <tr><td class="phrase-es">Por favor</td><td class="phrase-ph">por fah-VOR</td><td class="phrase-en">Please</td></tr>
+      <tr><td class="phrase-es">Gracias</td><td class="phrase-ph">GRAH-see-ahs</td><td class="phrase-en">Thank you</td></tr>
+      <tr><td class="phrase-es">¿Dónde está...?</td><td class="phrase-ph">DOHN-day es-TAH</td><td class="phrase-en">Where is...?</td></tr>
+      <tr><td class="phrase-es">La cuenta, por favor</td><td class="phrase-ph">lah KWEN-tah, por fah-VOR</td><td class="phrase-en">The check, please</td></tr>
+      <tr><td class="phrase-es">Una cerveza, por favor</td><td class="phrase-ph">OO-nah thehr-VEH-thah</td><td class="phrase-en">One beer, please</td></tr>
+      <tr><td class="phrase-es">¿Habla inglés?</td><td class="phrase-ph">AH-blah een-GLAYS</td><td class="phrase-en">Do you speak English?</td></tr>
+      <tr><td class="phrase-es">Sin gluten / Sin lactosa</td><td class="phrase-ph">seen GLOO-ten / seen lahk-TOH-sah</td><td class="phrase-en">Gluten-free / Dairy-free</td></tr>
+      <tr><td class="phrase-es">Soy alérgico/a a...</td><td class="phrase-ph">soy ah-LEHR-hee-koh/kah</td><td class="phrase-en">I'm allergic to...</td></tr>
+      <tr><td class="phrase-es">¿Cuánto cuesta?</td><td class="phrase-ph">KWAHN-toh KWES-tah</td><td class="phrase-en">How much does it cost?</td></tr>
+      <tr><td class="phrase-es">Me trae..., por favor</td><td class="phrase-ph">meh TRY-eh</td><td class="phrase-en">Can I have..., please</td></tr>
+      <tr><td class="phrase-es">¡Salud!</td><td class="phrase-ph">sah-LOOD</td><td class="phrase-en">Cheers!</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="checklist-section" id="checklist">
+  <div class="checklist-intro">
+    <p class="section-label">Before you arrive</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:400;margin-top:12px;letter-spacing:-0.01em;">Pre-trip<br><em style="color:var(--gray);">Checklist</em></h2>
+    <p>Check things off as you go — your progress is saved in the browser.</p>
+    <div class="checklist-progress">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="progressLabel">0 / 12 done</div>
+    </div>
+  </div>
+  <div class="checklist-cols">
+    <div class="checklist-group">
+      <h3>Tickets &amp; bookings</h3>
+      <div class="checklist-item"><input type="checkbox" id="c1"><label for="c1">Book Sagrada Família tickets<span>Do this first — sells out weeks ahead</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c2"><label for="c2">Book Park Güell (monumental zone)<span>Limited daily capacity, book online</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c3"><label for="c3">Book Casa Batlló<span>Recommended: Gold ticket with audio guide</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c4"><label for="c4">Book La Pedrera<span>Morning slots fill up fastest</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c5"><label for="c5">Book Palau Güell<span>Closed Mondays</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c6"><label for="c6">Reserve a restaurant for night 1<span>Use TheFork app</span></label></div>
+    </div>
+    <div class="checklist-group">
+      <h3>Practical prep</h3>
+      <div class="checklist-item"><input type="checkbox" id="c7"><label for="c7">Download Citymapper &amp; Google Translate<span>Download Spanish pack for offline use</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c8"><label for="c8">Notify your bank of Spain travel<span>Avoid card blocks abroad</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c9"><label for="c9">Get a European SIM or check roaming plan<span>eSIMs work great — Airalo is a good option</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c10"><label for="c10">Save emergency numbers<span>112 (general), 088 (local police)</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c11"><label for="c11">Bring a power adapter (Type F plug)<span>Spain uses 230V / Type C or F outlets</span></label></div>
+      <div class="checklist-item"><input type="checkbox" id="c12"><label for="c12">Print / save Airbnb address &amp; access info<span>In case you lose signal on arrival</span></label></div>
+    </div>
+  </div>
+</section>
 <section class="day" id="day1">
   <div class="day-header">
     <div class="day-num">1</div>
@@ -306,6 +475,146 @@
   </div>
 </section>
 
+
+<section class="tipping-section" id="tipping">
+  <div>
+    <p class="section-label">Unlike the US</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:400;margin-top:12px;letter-spacing:-0.01em;">Tipping<br><em style="color:var(--gray);">in Spain</em></h2>
+    <p style="font-size:14px;color:var(--gray);margin-top:16px;line-height:1.65;">Service is included by law in Spain. Tipping is always voluntary — never expected, always appreciated.</p>
+  </div>
+  <div>
+    <div class="tip-grid">
+      <div class="tip-venue">
+        <div class="tip-venue-icon">🍽️</div>
+        <div class="tip-venue-name">Sit-down restaurants</div>
+        <div class="tip-venue-amount">5–10%</div>
+        <div class="tip-venue-note">Optional. Round up or leave a few euros for good service. Not expected at casual places.</div>
+      </div>
+      <div class="tip-venue">
+        <div class="tip-venue-icon">🍺</div>
+        <div class="tip-venue-name">Bars &amp; tapas</div>
+        <div class="tip-venue-amount">Round up</div>
+        <div class="tip-venue-note">Leave your small change on the bar. €0.50–1 per round is perfectly normal and appreciated.</div>
+      </div>
+      <div class="tip-venue">
+        <div class="tip-venue-icon">☕</div>
+        <div class="tip-venue-name">Cafés</div>
+        <div class="tip-venue-amount">Not expected</div>
+        <div class="tip-venue-note">No need to tip for a coffee. Leaving a few coins if you stay a while is a nice gesture.</div>
+      </div>
+      <div class="tip-venue">
+        <div class="tip-venue-icon">🚖</div>
+        <div class="tip-venue-name">Taxis &amp; Uber</div>
+        <div class="tip-venue-amount">Round up</div>
+        <div class="tip-venue-note">Round to the nearest euro or add €1–2 for good service. Not mandatory.</div>
+      </div>
+      <div class="tip-venue">
+        <div class="tip-venue-icon">🎒</div>
+        <div class="tip-venue-name">Tours &amp; guides</div>
+        <div class="tip-venue-amount">€5–10 p.p.</div>
+        <div class="tip-venue-note">For free walking tours, €5–10 per person is the norm — this is often their only income.</div>
+      </div>
+      <div class="tip-venue">
+        <div class="tip-venue-icon">🏨</div>
+        <div class="tip-venue-name">Hotels &amp; Airbnb</div>
+        <div class="tip-venue-amount">€1–2/bag</div>
+        <div class="tip-venue-note">For hotel porters carrying luggage. Housekeeping: €1–2/day left on the pillow.</div>
+      </div>
+    </div>
+    <div class="tip-note-box">💡 <strong>Key difference from the US:</strong> In Spain, a service charge is legally included in restaurant prices. You will never be judged for not leaving a tip — it is genuinely optional, not a social obligation.</div>
+  </div>
+</section>
+
+<section class="food-section" id="food">
+  <div>
+    <p class="section-label">What to order</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:400;margin-top:12px;letter-spacing:-0.01em;">Barcelona<br><em style="color:var(--gray);">Food Guide</em></h2>
+    <p style="font-size:14px;color:var(--gray);margin-top:16px;line-height:1.65;">The dishes you need to try — and how to order them.</p>
+  </div>
+  <div class="food-grid">
+    <div class="food-card">
+      <span class="food-emoji">🍅</span>
+      <div class="food-body">
+        <div class="food-cat">Starter · Catalan classic</div>
+        <div class="food-name">Pa amb tomàquet</div>
+        <div class="food-desc">Thick bread rubbed with fresh tomato, drizzled with olive oil and salt. Simple, perfect, and comes with everything.</div>
+        <div class="food-order">"Pan con tomate, por favor"</div>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🥔</span>
+      <div class="food-body">
+        <div class="food-cat">Tapa · Everywhere</div>
+        <div class="food-name">Patatas bravas</div>
+        <div class="food-desc">Crispy fried potato cubes with a spicy tomato sauce (bravas) and aioli. A Barcelona staple — every bar has their own version.</div>
+        <div class="food-order">"Unas patatas bravas, por favor"</div>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🫓</span>
+      <div class="food-body">
+        <div class="food-cat">Tapa · Bar snack</div>
+        <div class="food-name">Croquetes</div>
+        <div class="food-desc">Golden, crispy croquettes — usually filled with jamón (cured ham) or bacallà (salted cod). Addictively good.</div>
+        <div class="food-order">"Unas croquetas, por favor"</div>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🥂</span>
+      <div class="food-body">
+        <div class="food-cat">Drink · Pre-lunch ritual</div>
+        <div class="food-name">Vermut</div>
+        <div class="food-desc">Vermouth with an olive and a splash of soda. A Sunday ritual in Barcelona — bars fill up between noon and 2pm for vermut before lunch.</div>
+        <div class="food-order">"Un vermut, por favor"</div>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🥘</span>
+      <div class="food-body">
+        <div class="food-cat">Main · Seafood</div>
+        <div class="food-name">Fideuà</div>
+        <div class="food-desc">Like paella but made with thin noodles instead of rice, cooked in fish stock with seafood. Born in Barcelona's port area.</div>
+        <div class="food-order">"Una fideuà, por favor"</div>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🍮</span>
+      <div class="food-body">
+        <div class="food-cat">Dessert · Local classic</div>
+        <div class="food-name">Crema catalana</div>
+        <div class="food-desc">The original crème brûlée — a silky custard with a caramelized sugar crust. Lighter and more citrusy than the French version.</div>
+        <div class="food-order">"Una crema catalana, por favor"</div>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🥙</span>
+      <div class="food-body">
+        <div class="food-cat">Snack · Basque-style</div>
+        <div class="food-name">Pintxos</div>
+        <div class="food-desc">Small bites on a slice of bread, held together with a toothpick. More common in the Basque Country but found throughout Barcelona too.</div>
+        <div class="food-order">"¿Qué pintxos tienen?" (What pintxos do you have?)</div>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🍷</span>
+      <div class="food-body">
+        <div class="food-cat">Drink · At any bar</div>
+        <div class="food-name">Cava</div>
+        <div class="food-desc">Catalan sparkling wine — Spain's answer to Champagne, made just outside Barcelona. Cheap, delicious, and the right thing to order in Catalonia.</div>
+        <div class="food-order">"Una copa de cava, por favor"</div>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🐟</span>
+      <div class="food-body">
+        <div class="food-cat">Tapa · La Barceloneta</div>
+        <div class="food-name">Boquerones &amp; anchoas</div>
+        <div class="food-desc">White anchovies marinated in vinegar (boquerones en vinagre) or cured salt anchovies. A perfect match with cold cava.</div>
+        <div class="food-order">"Unos boquerones en vinagre"</div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="restaurants" id="restaurants">
   <div class="resto-intro">
     <p class="section-label">Saved by Daniel</p>
@@ -407,6 +716,23 @@
     el.style.transitionDelay = (i % 6 * 0.07) + 's';
     observer.observe(el);
   });
+
+  // Checklist persistence
+  const checkboxes = document.querySelectorAll('.checklist-item input[type=checkbox]');
+  const fill = document.getElementById('progressFill');
+  const label = document.getElementById('progressLabel');
+  function updateProgress(){
+    const done = [...checkboxes].filter(c=>c.checked).length;
+    const pct = Math.round(done/checkboxes.length*100);
+    if(fill) fill.style.width = pct+'%';
+    if(label) label.textContent = done+' / '+checkboxes.length+' done';
+  }
+  checkboxes.forEach(cb=>{
+    const key='bcn-'+cb.id;
+    cb.checked=localStorage.getItem(key)==='true';
+    cb.addEventListener('change',()=>{ localStorage.setItem(key,cb.checked); updateProgress(); });
+  });
+  updateProgress();
 </script>
 </body>
 </html>
