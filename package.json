@@ -1,0 +1,15 @@
+{
+  "name": "barcelona-3-days",
+  "version": "1.0.0",
+  "description": "Barcelona in 3 Days — The Complete Family Travel Guide",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

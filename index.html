@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barcelona in 3 Days — The Complete Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sand:    #F5EFE4;
+      --ink:     #1A1410;
+      --terr:    #C85C38;
+      --gold:    #C8A84B;
+      --slate:   #2E3A47;
+      --mist:    #8A8278;
+      --cream:   #FAF7F2;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(26,20,16,0.15) 0%, rgba(26,20,16,0.65) 100%),
+        url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1800&q=80') center/cover no-repeat;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+    }
+
+    .hero-bg.loaded { transform: scale(1); }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 6vw 8vh;
+      max-width: 900px;
+    }
+
+    .hero-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(54px, 9vw, 110px);
+      font-weight: 300;
+      color: #FFF;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.9s 0.5s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.05em;
+      margin-top: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      right: 6vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.2s forwards;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5));
+      animation: scrollPulse 2s 1.5s infinite;
+    }
+
+    /* ── NAV ──────────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(26,20,16,0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 6vw;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── INTRO STRIP ──────────────────────────────────────────────────────── */
+    .intro-strip {
+      background: var(--ink);
+      color: var(--sand);
+      padding: 60px 6vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .stat { border-left: 1px solid rgba(200,168,75,0.3); padding-left: 24px; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mist); margin-top: 6px; }
+
+    /* ── TIPS ─────────────────────────────────────────────────────────────── */
+    .tips-section {
+      padding: 100px 6vw;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+      border-bottom: 1px solid rgba(26,20,16,0.1);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terr);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title em { font-style: italic; color: var(--terr); }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .tip-card {
+      background: var(--sand);
+      border-radius: 2px;
+      padding: 28px;
+      border-left: 3px solid var(--gold);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+
+    .tip-card.visible { opacity: 1; transform: none; }
+    .tip-card:nth-child(2) { transition-delay: 0.1s; }
+    .tip-card:nth-child(3) { transition-delay: 0.15s; }
+    .tip-card:nth-child(4) { transition-delay: 0.2s; }
+    .tip-card:nth-child(5) { transition-delay: 0.25s; }
+    .tip-card:nth-child(6) { transition-delay: 0.3s; }
+
+    .tip-icon { font-size: 24px; margin-bottom: 12px; }
+    .tip-title { font-weight: 600; font-size: 14px; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .tip-text { font-size: 14px; color: var(--mist); line-height: 1.7; }
+
+    /* ── DAY SECTION ──────────────────────────────────────────────────────── */
+    .day-section {
+      padding: 0;
+    }
+
+    .day-header {
+      position: relative;
+      height: 50vh;
+      min-height: 380px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .day-header-bg {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.08);
+      transition: transform 0.6s;
+    }
+
+    .day-header:hover .day-header-bg { transform: scale(1.03); }
+
+    .day-header-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,20,16,0.6) 0%, rgba(46,58,71,0.5) 100%);
+    }
+
+    .day-header-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 6vw 40px;
+      width: 100%;
+    }
+
+    .day-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.08);
+      position: absolute;
+      right: 6vw;
+      bottom: -20px;
+      line-height: 1;
+      z-index: 1;
+    }
+
+    .day-tag {
+      display: inline-block;
+      background: var(--terr);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      margin-bottom: 14px;
+    }
+
+    .day-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: -0.01em;
+      max-width: 600px;
+    }
+
+    .day-body {
+      padding: 70px 6vw 80px;
+      max-width: 1200px;
+    }
+
+    /* ── TIMELINE ─────────────────────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--terr), var(--gold), transparent);
+    }
+
+    .stop {
+      position: relative;
+      margin-bottom: 52px;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .stop.visible { opacity: 1; transform: none; }
+
+    .stop::before {
+      content: '';
+      position: absolute;
+      left: -41px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--terr);
+      border: 2px solid var(--cream);
+      box-shadow: 0 0 0 2px var(--terr);
+    }
+
+    .stop-time {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .stop-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .stop-desc {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .stop-tip {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: rgba(200,92,56,0.08);
+      border-left: 2px solid var(--terr);
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--terr);
+      max-width: 640px;
+    }
+
+    /* ── HIGHLIGHTS GRID ──────────────────────────────────────────────────── */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 40px 0;
+    }
+
+    .highlight-item {
+      background: var(--sand);
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: background 0.2s;
+    }
+
+    .highlight-item:hover { background: #EDE8DE; }
+    .highlight-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terr); flex-shrink: 0; margin-top: 8px; }
+    .highlight-text { font-size: 14px; color: var(--ink); line-height: 1.6; }
+
+    /* ── FULL-BLEED QUOTE ─────────────────────────────────────────────────── */
+    .quote-block {
+      background: var(--ink);
+      padding: 80px 6vw;
+      text-align: center;
+    }
+
+    .quote-block blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--sand);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    .quote-block cite {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 24px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--mist);
+      padding: 50px 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(200,168,75,0.2);
+    }
+
+    footer .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    footer .footer-logo span { color: var(--gold); }
+    footer p { font-size: 13px; }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── ANIMATIONS ───────────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .intro-strip { grid-template-columns: 1fr 1fr; }
+      .tips-section { grid-template-columns: 1fr; gap: 40px; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .highlights { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .intro-strip { grid-template-columns: 1fr 1fr; gap: 20px; padding: 40px 6vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">BCN <span>✦</span> 3 DAYS</div>
+    <ul class="nav-links">
+      <li><a href="#tips">Tips</a></li>
+      <li><a href="#day1">Day 1</a></li>
+      <li><a href="#day2">Day 2</a></li>
+      <li><a href="#day3">Day 3</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-content">
+      <p class="hero-label">The Complete Family Travel Guide</p>
+      <h1 class="hero-title">Barcelona<br>in <em>3 Days</em></h1>
+      <p class="hero-subtitle">Gaudí · Gothic Quarter · Mediterranean Coast · Montjuïc</p>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="intro-strip">
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Full Days</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">Highlights</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">UNESCO Sites</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Tapas Stops</div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <section class="tips-section" id="tips">
+    <div>
+      <p class="section-label">Before You Go</p>
+      <h2 class="section-title">Essential<br><em>Travel Tips</em></h2>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">🏨</div>
+        <div class="tip-title">Where to Stay</div>
+        <div class="tip-text">The Caledonian is right in the city center with great value. Other excellent options: H10 Art Gallery, Hotel Nouvel, Acta Splendid, Hostal la Palmera.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">✈️</div>
+        <div class="tip-title">Airport to City</div>
+        <div class="tip-text">From El Prat Airport you can reach the center by train, bus, metro, taxi, or private transfer. The Aerobús is fast and drops you at Plaça Catalunya.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎫</div>
+        <div class="tip-title">Barcelona Pass</div>
+        <div class="tip-text">If visiting many monuments, the Barcelona Pass saves money and lets you skip queues. The Hola BCN! card gives unlimited public transport for 2–5 days.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🚇</div>
+        <div class="tip-title">Getting Around</div>
+        <div class="tip-text">The T-Casual card (10 trips) works on metro, bus, and tram. The city is also very walkable — many top sights are within strolling distance of each other.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">💶</div>
+        <div class="tip-title">Free Museum Days</div>
+        <div class="tip-text">Picasso Museum is free Thursday afternoons. Hospital Sant Pau is free on the 1st Sunday of each month. MNAC is free on Saturday afternoons.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎟️</div>
+        <div class="tip-title">Book in Advance</div>
+        <div class="tip-text">Sagrada Família, Park Güell, Casa Batlló, and La Pedrera all sell out. Book tickets online at least a few days ahead to guarantee entry and skip the queues.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 1 -->
+  <section class="day-section" id="day1">
+    <div class="day-header">
+      <div class="day-header-bg" style="background-image: url('https://images.unsplash.com/photo-1511527661048-7fe73d85e9a4?w=1600&q=80');"></div>
+      <div class="day-header-overlay"></div>
+      <div class="day-number">1</div>
+      <div class="day-header-content">
+        <div class="day-tag">Day One</div>
+        <h2 class="day-title">Modernisme, Gràcia & the Gothic Quarter</h2>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+
+        <div class="stop">
+          <div class="stop-time">9:00 AM · Morning</div>
+          <div class="stop-name">Sagrada Família</div>
+          <div class="stop-desc">Gaudí's unfinished masterpiece and one of the world's most extraordinary buildings. Take the metro (lines L2 or L5) and arrive early. The interior — with its breathtaking stained glass — is worth every minute inside.</div>
+          <div class="stop-tip">⚠️ Book tickets online days in advance. A fixed number are sold daily and they sell out fast.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">11:00 AM</div>
+          <div class="stop-name">Hospital de la Santa Creu i Sant Pau</div>
+          <div class="stop-desc">A short walk from the Sagrada Família, this UNESCO World Heritage Site is one of the jewels of Catalan Modernisme — a surreal complex of Modernista pavilions surrounded by gardens.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">12:30 PM</div>
+          <div class="stop-name">Park Güell</div>
+          <div class="stop-desc">Head to the most beautiful park in the city. Gaudí's colorful mosaic terraces offer sweeping views over Barcelona. The monumental zone now requires paid entry with a daily capacity limit.</div>
+          <div class="stop-tip">💡 Book the monumental zone ticket well ahead — it regularly sells out.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">2:30 PM · Lunch + Afternoon</div>
+          <div class="stop-name">Neighborhood of Gràcia</div>
+          <div class="stop-desc">Walk down from Park Güell into one of Barcelona's most enchanting neighborhoods. Explore its narrow streets, local boutiques, and charming plazas: Virreina, del Sol, de la Revolució, del Diamant. Don't miss Casa Vicens — Gaudí's very first major work.</div>
+          <div class="stop-tip">🍽️ For tapas: Intrèpid de Gràcia or Bar Bodega Quimet are local favorites.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">5:00 PM</div>
+          <div class="stop-name">Gothic Quarter</div>
+          <div class="stop-desc">Take the metro (line 3) to Plaça Catalunya and head into the Gothic Quarter — the medieval heart of Barcelona. Wander through its atmospheric lanes to the Cathedral, Temple of Augustus, Carrer del Bisbe, Plaça de Sant Felip Neri, and the spectacular Plaça Reial.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">7:00 PM · Evening</div>
+          <div class="stop-name">Las Ramblas & La Boqueria Market</div>
+          <div class="stop-desc">Stroll the full length of Las Ramblas to the Columbus Monument, stepping inside the famous La Boqueria market to taste and browse. Find the Joan Miró mosaic underfoot near the midpoint of the boulevard.</div>
+          <div class="stop-tip">🎭 End the night with a flamenco show at Los Tarantos, right on Plaça Reial — a perfect Barcelona finale.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE 1 -->
+  <div class="quote-block">
+    <blockquote>"Barcelona is a place where you feel the city wants you to be happy."</blockquote>
+    <cite>Travel Notes</cite>
+  </div>
+
+  <!-- DAY 2 -->
+  <section class="day-section" id="day2">
+    <div class="day-header">
+      <div class="day-header-bg" style="background-image: url('https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?w=1600&q=80');"></div>
+      <div class="day-header-overlay"></div>
+      <div class="day-number">2</div>
+      <div class="day-header-content">
+        <div class="day-tag">Day Two</div>
+        <h2 class="day-title">Passeig de Gràcia, El Born & The Bunkers</h2>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+
+        <div class="stop">
+          <div class="stop-time">9:00 AM · Morning</div>
+          <div class="stop-name">La Pedrera (Casa Milà)</div>
+          <div class="stop-desc">Begin on the Passeig de Gràcia — Barcelona's grandest boulevard — with Gaudí's undulating apartment building, La Pedrera. The rooftop terrace with its warrior chimney sculptures is otherworldly. Arrive early or book ahead to avoid the queue.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">11:00 AM</div>
+          <div class="stop-name">Casa Batlló</div>
+          <div class="stop-desc">A few steps down the boulevard, Casa Batlló is one of the most beautiful buildings on Earth. The building's dragon-like roof, bone-shaped columns, and luminous interior are pure genius. The interactive audio guide included with the ticket is particularly engaging.</div>
+          <div class="stop-tip">💡 Walk the whole length of the Passeig de Gràcia to admire Casa Amatller, Casa Mulleras, and the other Modernista façades — the so-called "Block of Discord."</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">12:30 PM</div>
+          <div class="stop-name">Palau de la Música Catalana</div>
+          <div class="stop-desc">A UNESCO World Heritage concert hall and a dazzling explosion of stained glass, mosaics, and sculpted stone. Visit via a guided tour or by attending one of its concerts.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">2:00 PM · Lunch</div>
+          <div class="stop-name">Lunch near El Born</div>
+          <div class="stop-desc">After the Palau de la Música, stop for lunch nearby. Tosca Palau and Casa Lolea are both excellent options in the area.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">3:30 PM · Afternoon</div>
+          <div class="stop-name">El Born Neighborhood</div>
+          <div class="stop-desc">A medieval neighborhood packed with culture. Explore the magnificent Gothic basilica of Santa María del Mar, the old iron Mercat del Born, the colorful Mercat de Santa Catarina, the Carrer Montcada, and the Parc de la Ciutadella — Barcelona's green lung.</div>
+
+          <div class="highlights">
+            <div class="highlight-item"><div class="highlight-dot"></div><div class="highlight-text">Basílica de Santa María del Mar</div></div>
+            <div class="highlight-item"><div class="highlight-dot"></div><div class="highlight-text">Mercat del Born (cultural center)</div></div>
+            <div class="highlight-item"><div class="highlight-dot"></div><div class="highlight-text">Carrer Montcada (medieval street)</div></div>
+            <div class="highlight-item"><div class="highlight-dot"></div><div class="highlight-text">Museu Picasso</div></div>
+            <div class="highlight-item"><div class="highlight-dot"></div><div class="highlight-text">Museo Moco (contemporary art)</div></div>
+            <div class="highlight-item"><div class="highlight-dot"></div><div class="highlight-text">Parc de la Ciutadella</div></div>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">6:00 PM · Sunset</div>
+          <div class="stop-name">Bunkers del Carmel</div>
+          <div class="stop-desc">From the Arc de Triomf, take bus V19 to the Ctra. del Carmel – Mühlberg stop, then walk 10 minutes up to the Bunkers — WWII anti-aircraft battery ruins that offer the most breathtaking 360° panorama in Barcelona. Stay for sunset. As darkness falls, the city lights up below you like a living map.</div>
+          <div class="stop-tip">🌅 This is the single best viewpoint in Barcelona. Don't miss it.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="day-section" id="day3">
+    <div class="day-header">
+      <div class="day-header-bg" style="background-image: url('https://images.unsplash.com/photo-1573152143286-0c422b4d2175?w=1600&q=80');"></div>
+      <div class="day-header-overlay"></div>
+      <div class="day-number">3</div>
+      <div class="day-header-content">
+        <div class="day-tag">Day Three</div>
+        <h2 class="day-title">Raval, Barceloneta & Montjuïc</h2>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+
+        <div class="stop">
+          <div class="stop-time">9:30 AM · Morning</div>
+          <div class="stop-name">El Raval Neighborhood</div>
+          <div class="stop-desc">Start the final day with a relaxed stroll through El Raval, one of Barcelona's oldest and most atmospheric neighborhoods. Walk along Carrer Tallers with its quirky independent shops, and finish at the Rambla del Raval — where Botero's famous bronze Cat sculpture sits in the middle of the boulevard.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">10:30 AM</div>
+          <div class="stop-name">Palau Güell</div>
+          <div class="stop-desc">A short walk from the Rambla, the Palau Güell is one of Gaudí's most remarkable early works — extraordinary for its innovative use of natural light filtering through dome and skylights, and its spectacular ceramic chimney sculptures on the rooftop terrace.</div>
+          <div class="stop-tip">🎫 Book tickets in advance online to guarantee entry.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">12:00 PM · Midday</div>
+          <div class="stop-name">Port Vell & La Barceloneta</div>
+          <div class="stop-desc">Walk down Las Ramblas to the Columbus Monument and the Port Vell — the ancient harbor filled with luxury yachts. Cross the Rambla del Mar to Maremagnum for a sea-view drink, or head to the Time Out Market for lunch with local flavors.</div>
+          <div class="stop-desc" style="margin-top:12px;">Continue along the seafront promenade to La Barceloneta — the charming fishermen's neighborhood with narrow streets, fine sandy beaches, and excellent restaurants serving fresh fish and paella.</div>
+          <div class="stop-tip">🦞 Best seafood restaurants: La Peninsular and La Cova Fumada.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">3:00 PM · Afternoon</div>
+          <div class="stop-name">Montjuïc by Cable Car</div>
+          <div class="stop-desc">Head back toward Port Vell and take the Telefèric de Montjuïc cable car from Avenida de Miramar up to the mountain top. Pre-booking the ticket is recommended.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">3:30 PM</div>
+          <div class="stop-name">Montjuïc Castle</div>
+          <div class="stop-desc">A defensive fortress with over 300 years of turbulent history — anti-aircraft batteries, cannons, and extraordinary panoramic views of the city and the entire Barcelona coastline from every angle.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">5:00 PM</div>
+          <div class="stop-name">The 1992 Olympic Ring</div>
+          <div class="stop-desc">A short walk from the castle, the Olympic Ring — site of the 1992 Olympic Games — features the Estadio Olímpico Lluís Companys, the Palau Sant Jordi, Bernat Picornell pools, and the iconic Calatrava telecommunications tower.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">6:00 PM</div>
+          <div class="stop-name">MNAC — National Art Museum of Catalonia</div>
+          <div class="stop-desc">The grand National Palace houses one of the world's finest collections of Romanesque art, plus works by Picasso, Velázquez, and Dalí. Even if you skip the museum itself, the two free outdoor terraces offer one of the most spectacular views in all of Barcelona.</div>
+        </div>
+
+        <div class="stop">
+          <div class="stop-time">9:00 PM · Evening</div>
+          <div class="stop-name">Font Màgica & Plaça d'Espanya</div>
+          <div class="stop-desc">Ride the escalators down from Montjuïc to the Magic Fountain (Font Màgica). When night falls, a spectacular free show of water, music, and colored light begins — one of the most memorable experiences in Barcelona. Walk between the two Venetian towers to Plaça d'Espanya for dinner nearby.</div>
+          <div class="stop-tip">🎇 The Magic Fountain show is completely free — don't miss it.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL QUOTE -->
+  <div class="quote-block" style="background: var(--terr);">
+    <blockquote style="color:#fff;">"Three days is just enough to fall in love. Not enough to leave."</blockquote>
+    <cite style="color:rgba(255,255,255,0.6);">Barcelona, always</cite>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">BCN <span>✦</span> 3 DAYS</div>
+    <p>Guide based on <a href="https://www.viajeroscallejeros.com/barcelona-en-3-dias/" target="_blank">Viajeros Callejeros</a></p>
+    <p>Images © Unsplash</p>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hero parallax
+    const heroBg = document.getElementById('heroBg');
+    setTimeout(() => heroBg.classList.add('loaded'), 100);
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      heroBg.style.transform = `scale(1) translateY(${y * 0.25}px)`;
+    });
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.tip-card, .stop').forEach(el => observer.observe(el));
+
+    // Stagger stop animations
+    document.querySelectorAll('.stop').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.08}s`;
+    });
+  </script>
+</body>
+</html>
