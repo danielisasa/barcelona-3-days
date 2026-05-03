@@ -58,11 +58,27 @@
     .pull-quote { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; align-items:center; }
     .pull-quote blockquote { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,30px); font-style:italic; color:var(--black); line-height:1.45; }
 
+    /* RESTAURANTS */
+    .restaurants { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .resto-intro p { font-size:14px; color:var(--gray); line-height:1.65; margin-top:12px; }
+    .resto-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .resto-card { background:#fafaf8; padding:22px 24px; border:1px solid var(--border); margin:-1px 0 0 -1px; transition:background .15s; }
+    .resto-card:hover { background:#f0eeea; }
+    .resto-type { font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+    .resto-name { font-family:'Playfair Display',serif; font-size:16px; font-weight:400; color:var(--black); margin-bottom:6px; line-height:1.25; }
+    .resto-meta { font-size:12px; color:var(--gray); display:flex; align-items:center; gap:8px; }
+    .resto-stars { color:#c8a84b; letter-spacing:-1px; }
+    .resto-price { border-left:1px solid var(--border); padding-left:8px; }
+
     footer { padding:48px; display:flex; justify-content:space-between; align-items:center; }
     footer p { font-size:13px; color:var(--gray); }
     footer a { color:var(--gray); }
 
+    @media(max-width:1024px){ .resto-grid{grid-template-columns:repeat(2,1fr);} }
     @media(max-width:768px){
+      .restaurants{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
+      .resto-grid{grid-template-columns:1fr;}
+    
       nav{padding:20px 24px;} .nav-links{display:none;}
       header{padding:56px 24px 48px;}
       .stats{grid-template-columns:1fr 1fr;} .stat{padding:24px;} .stat:nth-child(2){border-right:none;}
@@ -83,6 +99,7 @@
     <li><a href="#day1">Day 1</a></li>
     <li><a href="#day2">Day 2</a></li>
     <li><a href="#day3">Day 3</a></li>
+    <li><a href="#restaurants">Restaurants</a></li>
   </ul>
 </nav>
 
@@ -165,6 +182,94 @@
     <div class="stop"><div class="stop-time">3:00 pm</div><div class="stop-body"><div class="stop-name">Montjuïc by cable car</div><p class="stop-desc">Return to Port Vell and take the Telefèric de Montjuïc up the mountain. Pre-book the ticket. At the top: Montjuïc Castle, a 300-year-old fortress with panoramic views of the entire city and coast.</p></div></div>
     <div class="stop"><div class="stop-time">5:00 pm</div><div class="stop-body"><div class="stop-name">Olympic Ring &amp; MNAC</div><p class="stop-desc">A short walk from the castle leads to the 1992 Olympic Ring — Estadio Olímpico, Palau Sant Jordi, Calatrava tower. The route ends at the National Palace, home to the MNAC. The free outdoor terraces have spectacular views.</p></div></div>
     <div class="stop"><div class="stop-time">9:00 pm</div><div class="stop-body"><div class="stop-name">Font Màgica &amp; Plaça d'Espanya</div><p class="stop-desc">Ride the escalators down to the Magic Fountain. After dark, a free show of water, music, and light begins — one of Barcelona's most memorable experiences. Walk to Plaça d'Espanya for a final dinner.</p><div class="stop-tip">→ Dinner: Kurai (Japanese) or Arrocería Las Arenas (Mediterranean).</div></div></div>
+  </div>
+</section>
+
+<section class="restaurants" id="restaurants">
+  <div class="resto-intro">
+    <p class="section-label">Saved by Daniel</p>
+    <p>Personal picks from Google Maps — the places worth visiting during your stay.</p>
+  </div>
+  <div class="resto-grid">
+
+    <div class="resto-card">
+      <div class="resto-type">Galician</div>
+      <div class="resto-name">Porvenir</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.6 <span class="resto-price">20–30 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Mediterranean</div>
+      <div class="resto-name">Carballeira Restaurant Barcelona</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.5 <span class="resto-price">€€€</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Restaurant</div>
+      <div class="resto-name">Manda Huevos</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.4 <span class="resto-price">30–40 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Cocktail bar</div>
+      <div class="resto-name">La llibreria Cocktails</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.6 <span class="resto-price">10–20 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Italian</div>
+      <div class="resto-name">Restaurante Bella's</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.4 <span class="resto-price">20–30 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Tapas bar</div>
+      <div class="resto-name">Bar Alegria</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.1 <span class="resto-price">20–30 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Restaurant</div>
+      <div class="resto-name">Restaurante Casa Luz</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.2</div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Burgers</div>
+      <div class="resto-name">Asado</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.5 <span class="resto-price">20–30 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Restaurant</div>
+      <div class="resto-name">Collonut | Gelabert</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.5 <span class="resto-price">10–20 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Tapas</div>
+      <div class="resto-name">LABARRA · Barcelona</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.0 <span class="resto-price">20–30 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Vermutería · Bar</div>
+      <div class="resto-name">Trencalòs Vermuteria</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.3 <span class="resto-price">10–20 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Bar</div>
+      <div class="resto-name">Zim</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.9 <span class="resto-price">10–20 €</span></div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-type">Restaurant</div>
+      <div class="resto-name">fismuler barcelona</div>
+      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.4 <span class="resto-price">€€</span></div>
+    </div>
+
   </div>
 </section>
 
