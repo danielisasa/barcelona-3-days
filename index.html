@@ -155,6 +155,35 @@
     .hood-must { margin-top:10px; font-size:12px; color:var(--black); }
     .hood-must::before { content:"→ "; color:var(--accent); }
 
+
+    /* RESTAURANTS REDESIGN */
+    .restaurants { padding:80px 48px; border-bottom:1px solid var(--border); }
+    .restaurants-header { display:grid; grid-template-columns:220px 1fr; gap:64px; margin-bottom:48px; }
+    .rest-tabs { display:flex; gap:0; border-bottom:1px solid var(--border); margin-bottom:40px; overflow-x:auto; scrollbar-width:none; }
+    .rest-tabs::-webkit-scrollbar { display:none; }
+    .rest-tab { font-size:11px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; padding:14px 24px; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; white-space:nowrap; color:var(--gray); transition:color .15s,border-color .15s; background:none; border-top:none; border-left:none; border-right:none; }
+    .rest-tab:hover { color:var(--black); }
+    .rest-tab.active { color:var(--black); border-bottom-color:var(--accent); }
+    .rest-panel { display:none; }
+    .rest-panel.active { display:block; }
+    .rest-zone { margin-bottom:40px; }
+    .rest-zone-label { font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+    .rest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .rest-card { background:#fafaf8; border:1px solid var(--border); margin:-1px 0 0 -1px; padding:20px 22px; }
+    .rest-card:hover { background:#f0eeea; }
+    .rest-name { font-size:15px; font-weight:500; color:var(--black); margin-bottom:6px; line-height:1.3; }
+    .rest-meta { display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+    .rest-stars { color:#C8972A; font-size:12px; }
+    .rest-price { font-size:11px; color:var(--gray); }
+    .rest-cuisine { font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); }
+    .rest-desc { font-size:13px; color:var(--gray); line-height:1.6; margin-bottom:8px; }
+    .rest-tip { font-size:12px; color:var(--black); line-height:1.5; }
+    .rest-tip::before { content:"💡 "; }
+    .rest-daniel { border-left:3px solid var(--accent); }
+    .rest-daniel-badge { font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+
+    @media(max-width:900px){ .rest-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:768px){ .restaurants{padding:48px 24px;} .restaurants-header{grid-template-columns:1fr;gap:24px;} .rest-grid{grid-template-columns:1fr;} .rest-tab{padding:12px 16px;} }
     /* SHOPPING */
     .shopping-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
     .shopping-zones { display:flex; flex-direction:column; gap:2px; }
@@ -710,90 +739,191 @@
 </section>
 
 <section class="restaurants" id="restaurants">
-  <div class="resto-intro">
-    <p class="section-label">Saved by Daniel</p>
-    <p>Personal picks from Google Maps — the places worth visiting during your stay.</p>
+  <div class="restaurants-header">
+    <div>
+      <p class="section-label">Where to eat</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:400;margin-top:12px;letter-spacing:-0.01em;">Restaurants<br><em style="color:var(--gray);">by day</em></h2>
+      <p style="font-size:14px;color:var(--gray);margin-top:16px;line-height:1.65;">Organized by the zones you'll be in each day. Prices are 20–30€ per person unless noted. Book ahead on TheFork for popular spots.</p>
+    </div>
+    <div></div>
   </div>
-  <div class="resto-grid">
 
-    <div class="resto-card">
-      <div class="resto-type">Galician</div>
-      <div class="resto-name">Porvenir</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.6 <span class="resto-price">20–30 €</span></div>
+  <div class="rest-tabs">
+    <button class="rest-tab active" onclick="showTab('day1r')">Day 1</button>
+    <button class="rest-tab" onclick="showTab('day2r')">Day 2</button>
+    <button class="rest-tab" onclick="showTab('day3r')">Day 3</button>
+    <button class="rest-tab" onclick="showTab('anyday')">Any Night — Daniel's picks</button>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="rest-panel active" id="day1r">
+    <div class="rest-zone">
+      <div class="rest-zone-label">📍 Gràcia — Lunch (after Park Güell)</div>
+      <div class="rest-grid">
+        <div class="rest-card">
+          <div class="rest-name">L'Arrosseria Xàtiva</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★★</span><span class="rest-price">20–30€</span><span class="rest-cuisine">Paella · Rice</span></div>
+          <div class="rest-desc">One of Barcelona's best paella restaurants, right in Gràcia. Cooked over wood fire in the Valencian tradition. 20+ rice varieties including seafood, meat, and vegetarian.</div>
+          <div class="rest-tip">Book ahead — fills up fast at weekends. Ask for the arroz negro.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">La Pepita</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">20–28€</span><span class="rest-cuisine">Tapas · Catalan</span></div>
+          <div class="rest-desc">A Gràcia classic — small plates, excellent croquetes, and a lively atmosphere. Cozy interior with exposed brick and vintage decor. Very popular with locals.</div>
+          <div class="rest-tip">Go early (1:30pm) or you'll wait. Croquetes de bacallà are unmissable.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">Bodega Sepúlveda</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">15–25€</span><span class="rest-cuisine">Bodega · Tapas</span></div>
+          <div class="rest-desc">An old-school Gràcia bodega — wine barrels, wooden stools, plates of jamón, Russian salad, and anchovies. The kind of place that hasn't changed in 40 years. Exactly as it should be.</div>
+          <div class="rest-tip">Order the tabla de embutidos and a glass of house red. Perfect pre-lunch snack.</div>
+        </div>
+      </div>
     </div>
-
-    <div class="resto-card">
-      <div class="resto-type">Mediterranean</div>
-      <div class="resto-name">Carballeira Restaurant Barcelona</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.5 <span class="resto-price">€€€</span></div>
+    <div class="rest-zone">
+      <div class="rest-zone-label">📍 Gothic Quarter — Dinner</div>
+      <div class="rest-grid">
+        <div class="rest-card">
+          <div class="rest-name">La Cassola</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">20–25€</span><span class="rest-cuisine">Catalan · Traditional</span></div>
+          <div class="rest-desc">Hidden in the Call (old Jewish quarter), a beloved local spot serving honest Catalan home cooking — canelons, albóndigas, market-fresh dishes. Stone walls and a festive atmosphere.</div>
+          <div class="rest-tip">Menú del día is exceptional value at lunch. At dinner, go à la carte.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">Espai Quera</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">25–35€</span><span class="rest-cuisine">Catalan · Bistro</span></div>
+          <div class="rest-desc">A restaurant inside a bookshop that has been open since 1916. Aged wooden shelves, rustic décor, and a menu of traditional Catalan platillos — charcuterie, steak tartar, and seasonal dishes.</div>
+          <div class="rest-tip">Open all day — great for a late lunch between sightseeing. No reservations needed.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">Bar del Pla</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">22–30€</span><span class="rest-cuisine">Tapas · Wine bar</span></div>
+          <div class="rest-desc">On the border of the Gothic Quarter and El Born — a local favourite for natural wines and creative small plates. Smoked sardines, squid ink croquettes, crispy oxtail. Buzzing atmosphere.</div>
+          <div class="rest-tip">Get there at 9pm sharp — it fills up within minutes. No reservations for the bar.</div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="resto-card">
-      <div class="resto-type">Restaurant</div>
-      <div class="resto-name">Manda Huevos</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.4 <span class="resto-price">30–40 €</span></div>
+  <!-- DAY 2 -->
+  <div class="rest-panel" id="day2r">
+    <div class="rest-zone">
+      <div class="rest-zone-label">📍 Eixample — Lunch (near La Pedrera & Casa Batlló)</div>
+      <div class="rest-grid">
+        <div class="rest-card">
+          <div class="rest-name">Cervecería Catalana</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">20–30€</span><span class="rest-cuisine">Tapas · Beer bar</span></div>
+          <div class="rest-desc">One of Barcelona's most beloved tapas bars — always packed with a mix of locals and savvy visitors. Exceptional montaditos, croquetes, and fresh seafood tapas. Lively and fun.</div>
+          <div class="rest-tip">Expect a short queue. Worth every minute. The montadito de jamón ibérico is essential.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">El Nacional</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★</span><span class="rest-price">25–35€</span><span class="rest-cuisine">Multi-concept · Spanish</span></div>
+          <div class="rest-desc">A grand 1900s building converted into four different restaurant concepts under one roof — tapas bar, seafood, grill, and oyster bar. Great for a group with different tastes. Stunning space.</div>
+          <div class="rest-tip">Walk through the whole space before you sit — each section has a different vibe and menu.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">Taperia Catalana</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">20–28€</span><span class="rest-cuisine">Tapas · Catalan</span></div>
+          <div class="rest-desc">Straightforward, excellent Catalan tapas in the heart of Eixample. Honest ingredients, generous portions, and a warm family atmosphere. A local go-to that avoids the tourist trap pricing of the area.</div>
+          <div class="rest-tip">Try the patatas bravas and the tosta de foie with caramelized onion.</div>
+        </div>
+      </div>
     </div>
-
-    <div class="resto-card">
-      <div class="resto-type">Cocktail bar</div>
-      <div class="resto-name">La llibreria Cocktails</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.6 <span class="resto-price">10–20 €</span></div>
+    <div class="rest-zone">
+      <div class="rest-zone-label">📍 El Born — Dinner (after Santa María del Mar)</div>
+      <div class="rest-grid">
+        <div class="rest-card">
+          <div class="rest-name">Cal Pep</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">30–40€</span><span class="rest-cuisine">Seafood · Tapas</span></div>
+          <div class="rest-desc">A legendary Barcelona institution. Only 20 bar stools — they start lining up before opening. No menu: chef Pep serves whatever is freshest that day. One of the most memorable meals in the city.</div>
+          <div class="rest-tip">Arrive 15 min before opening (1pm for lunch, 7:30pm for dinner) and wait at the door. Worth it.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">Tantarantana</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">22–32€</span><span class="rest-cuisine">Mediterranean · Market</span></div>
+          <div class="rest-desc">The first restaurant of the San Telmo Group — reliable, excellent quality, and with a beautiful terrace. Market-driven Mediterranean cooking: fricandó, confit artichokes, and incredible croquetes de rustido.</div>
+          <div class="rest-tip">Reserve the terrace in advance — it's one of the best outdoor dining spots in El Born.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">El Chigre 1769</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">20–30€</span><span class="rest-cuisine">Asturian · Tapas</span></div>
+          <div class="rest-desc">Asturian soul in the medieval streets of El Born. Cider, stews, charcuterie, and the famous Bomba de la Barceloneta. One of the most charming atmospheres in the neighbourhood — feels like an old tavern.</div>
+          <div class="rest-tip">Order the sidra natural — the waiter pours it from above head height to oxygenate it.</div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="resto-card">
-      <div class="resto-type">Italian</div>
-      <div class="resto-name">Restaurante Bella's</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.4 <span class="resto-price">20–30 €</span></div>
+  <!-- DAY 3 -->
+  <div class="rest-panel" id="day3r">
+    <div class="rest-zone">
+      <div class="rest-zone-label">📍 La Barceloneta — Lunch (seafood by the sea)</div>
+      <div class="rest-grid">
+        <div class="rest-card">
+          <div class="rest-name">Can Majó</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">25–35€</span><span class="rest-cuisine">Seafood · Paella</span></div>
+          <div class="rest-desc">A family-run Barceloneta institution since 1968. Coveted outdoor terrace overlooking the marina of the W Hotel. Exceptional fideuà, paella negra, and fresh seafood platters. The real deal.</div>
+          <div class="rest-tip">Book a terrace table in advance. The fideuà amb marisc is the house speciality — order it.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">La Mar Salada</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★</span><span class="rest-price">25–38€</span><span class="rest-cuisine">Seafood · Rice</span></div>
+          <div class="rest-desc">Right on Passeig de Joan de Borbó with a terrace facing the sea. One of the few non-tourist-trap restaurants on the promenade. Excellent arroz caldoso and traditional paellas using locally sourced seafood.</div>
+          <div class="rest-tip">One of the rare honest restaurants on the tourist strip. Avoid the flashier spots on either side.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">Maná 75</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">24–36€</span><span class="rest-cuisine">Paella · Rice</span></div>
+          <div class="rest-desc">Hidden behind the W Hotel, this paella specialist offers 14 (!!) different rice dishes. Open kitchen where you can watch the cooking. The paella negra and fideuà are standouts. A real experience.</div>
+          <div class="rest-tip">Unique among paella restaurants for the sheer variety. Great for families with different tastes.</div>
+        </div>
+      </div>
     </div>
-
-    <div class="resto-card">
-      <div class="resto-type">Tapas bar</div>
-      <div class="resto-name">Bar Alegria</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.1 <span class="resto-price">20–30 €</span></div>
+    <div class="rest-zone">
+      <div class="rest-zone-label">📍 Montjuïc / Poble Sec — Dinner</div>
+      <div class="rest-grid">
+        <div class="rest-card">
+          <div class="rest-name">Martínez</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">30–45€</span><span class="rest-cuisine">Seafood · Grill</span></div>
+          <div class="rest-desc">Perched on Montjuïc with the most spectacular views of Barcelona's port and skyline. Grilled seafood, excellent Spanish wines, and a buzzing atmosphere. The destination restaurant on Day 3.</div>
+          <div class="rest-tip">Book well in advance — very popular. Ask for a table on the terrace overlooking the city.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">Quimet & Quimet</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★★</span><span class="rest-price">15–25€</span><span class="rest-cuisine">Vermutería · Conservas</span></div>
+          <div class="rest-desc">A legendary Poble Sec bodega — standing room only, always packed, serving creative montaditos with tinned seafood and vermouth. A Barcelona institution that every foodie must experience. Only open midday.</div>
+          <div class="rest-tip">Only open Tue–Sat 12–4pm and Fri–Sat 7–10:30pm. Arrive early — it fills up instantly.</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-name">Bodega 1900</div>
+          <div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">30–40€</span><span class="rest-cuisine">Catalan · Creative tapas</span></div>
+          <div class="rest-desc">Albert Adrià's (brother of Ferran, el Bulli) tribute to the old Barcelona vermouth bars. Creative reinventions of classic tapas in a lovingly restored 1900s bodega setting in Poble Sec. Exceptional quality.</div>
+          <div class="rest-tip">Book weeks in advance — this one is famous. The truffled croquetes are legendary.</div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="resto-card">
-      <div class="resto-type">Restaurant</div>
-      <div class="resto-name">Restaurante Casa Luz</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.2</div>
+  <!-- ANY NIGHT - DANIEL'S PICKS -->
+  <div class="rest-panel" id="anyday">
+    <div class="rest-zone">
+      <div class="rest-zone-label">⭐ Daniel's personal selection — any night</div>
+      <div class="rest-grid">
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">Porvenir</div><div class="rest-meta"><span class="rest-stars">★★★★★</span><span class="rest-price">20–30€</span><span class="rest-cuisine">Galician</span></div><div class="rest-desc">Excellent Galician cooking — pulpo, empanadas, fresh seafood. One of Daniel's top picks with consistently outstanding reviews.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">Carballeira</div><div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">€€€</span><span class="rest-cuisine">Mediterranean · Seafood</span></div><div class="rest-desc">A Barcelona classic for Mediterranean seafood and grilled fish. Quality ingredients, elegant setting, and a loyal local following.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">Manda Huevos</div><div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">30–40€</span><span class="rest-cuisine">Modern Spanish</span></div><div class="rest-desc">Creative, fun cooking with an irreverent attitude. The name says it all. Great for a dinner that surprises.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">La Llibreria Cocktails</div><div class="rest-meta"><span class="rest-stars">★★★★★</span><span class="rest-price">10–20€</span><span class="rest-cuisine">Cocktail bar</span></div><div class="rest-desc">A cocktail bar hidden inside a bookshop concept. Atmospheric, inventive drinks, and a great spot for pre-dinner drinks.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">Restaurante Bella's</div><div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">20–30€</span><span class="rest-cuisine">Italian</span></div><div class="rest-desc">Daniel's go-to Italian in Barcelona. Great pasta, excellent wine list, and a warm neighbourhood atmosphere.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">Bar Alegria</div><div class="rest-meta"><span class="rest-stars">★★★★</span><span class="rest-price">20–30€</span><span class="rest-cuisine">Tapas</span></div><div class="rest-desc">A neighbourhood tapas bar with no pretensions and excellent food. The kind of place you come back to every visit.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">Asado</div><div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">20–30€</span><span class="rest-cuisine">Burgers · Grill</span></div><div class="rest-desc">The best burgers in Barcelona according to Daniel — Pyrenees beef, proper buns, great craft beer selection.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">Trencalòs Vermuteria</div><div class="rest-meta"><span class="rest-stars">★★★★</span><span class="rest-price">10–20€</span><span class="rest-cuisine">Vermutería</span></div><div class="rest-desc">A proper Barcelona vermouth bar — conservas, anchovies, olives, and good local vermouth. Sunday ritual stuff.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">Zim</div><div class="rest-meta"><span class="rest-stars">★★★★★</span><span class="rest-price">10–20€</span><span class="rest-cuisine">Bar</span></div><div class="rest-desc">4.9 stars — one of Barcelona's highest-rated bars. Exceptional atmosphere and cocktails. The place to end a great evening.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">fismuler barcelona</div><div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">€€</span><span class="rest-cuisine">Modern Spanish</span></div><div class="rest-desc">Nordic-influenced Spanish cooking from a respected Madrid group. Beautiful presentation, excellent ingredients, and a buzzing Eixample dining room.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">LABARRA · Barcelona</div><div class="rest-meta"><span class="rest-stars">★★★★</span><span class="rest-price">20–30€</span><span class="rest-cuisine">Tapas</span></div><div class="rest-desc">Casual, honest tapas bar with a great selection of pintxos and daily specials. Good for a laid-back night with drinks and small plates.</div></div>
+        <div class="rest-card rest-daniel"><div class="rest-daniel-badge">Daniel's pick</div><div class="rest-name">Collonut | Gelabert</div><div class="rest-meta"><span class="rest-stars">★★★★½</span><span class="rest-price">10–20€</span><span class="rest-cuisine">Restaurant</span></div><div class="rest-desc">A neighbourhood gem with great value and consistent quality. One of Daniel's reliable local picks for any occasion.</div></div>
+      </div>
     </div>
-
-    <div class="resto-card">
-      <div class="resto-type">Burgers</div>
-      <div class="resto-name">Asado</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.5 <span class="resto-price">20–30 €</span></div>
-    </div>
-
-    <div class="resto-card">
-      <div class="resto-type">Restaurant</div>
-      <div class="resto-name">Collonut | Gelabert</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.5 <span class="resto-price">10–20 €</span></div>
-    </div>
-
-    <div class="resto-card">
-      <div class="resto-type">Tapas</div>
-      <div class="resto-name">LABARRA · Barcelona</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.0 <span class="resto-price">20–30 €</span></div>
-    </div>
-
-    <div class="resto-card">
-      <div class="resto-type">Vermutería · Bar</div>
-      <div class="resto-name">Trencalòs Vermuteria</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.3 <span class="resto-price">10–20 €</span></div>
-    </div>
-
-    <div class="resto-card">
-      <div class="resto-type">Bar</div>
-      <div class="resto-name">Zim</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★★</span> 4.9 <span class="resto-price">10–20 €</span></div>
-    </div>
-
-    <div class="resto-card">
-      <div class="resto-type">Restaurant</div>
-      <div class="resto-name">fismuler barcelona</div>
-      <div class="resto-meta"><span class="resto-stars">★★★★</span> 4.4 <span class="resto-price">€€</span></div>
-    </div>
-
   </div>
 </section>
 
@@ -827,6 +957,14 @@
     cb.addEventListener('change',()=>{ localStorage.setItem(key,cb.checked); updateProgress(); });
   });
   updateProgress();
+
+  // Restaurant tabs
+  function showTab(id) {
+    document.querySelectorAll('.rest-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.rest-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
 </script>
 </body>
 </html>
