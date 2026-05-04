@@ -132,6 +132,52 @@
       .apps-grid{grid-template-columns:repeat(2,1fr);}
       .tip-grid,.food-grid{grid-template-columns:1fr;}
     }
+
+    /* MEAL TIMES */
+    .meals-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .meals-timeline { display:flex; flex-direction:column; gap:0; }
+    .meal-row { display:grid; grid-template-columns:90px 1fr 1fr; gap:0; border-bottom:1px solid var(--border); }
+    .meal-row:last-child { border-bottom:none; }
+    .meal-time { padding:20px 0; font-family:'Playfair Display',serif; font-size:15px; color:var(--accent); font-weight:400; border-right:1px solid var(--border); padding-right:20px; }
+    .meal-name { padding:20px 20px; font-size:14px; font-weight:500; color:var(--black); border-right:1px solid var(--border); }
+    .meal-note { padding:20px 20px; font-size:13px; color:var(--gray); line-height:1.6; }
+    .meal-warning { margin-top:20px; padding:16px 20px; background:#fafaf8; border-left:3px solid var(--accent); font-size:13px; color:var(--gray); line-height:1.65; }
+    .meal-warning strong { color:var(--accent); }
+
+    /* NEIGHBOURHOODS */
+    .hoods-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .hoods-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .hood-card { background:#fafaf8; border:1px solid var(--border); margin:-1px 0 0 -1px; padding:22px 24px; }
+    .hood-card:hover { background:#f0eeea; }
+    .hood-name { font-family:'Playfair Display',serif; font-size:18px; font-weight:400; color:var(--black); margin-bottom:8px; }
+    .hood-tag { font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+    .hood-desc { font-size:13px; color:var(--gray); line-height:1.65; }
+    .hood-must { margin-top:10px; font-size:12px; color:var(--black); }
+    .hood-must::before { content:"→ "; color:var(--accent); }
+
+    /* SHOPPING */
+    .shopping-section { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
+    .shopping-zones { display:flex; flex-direction:column; gap:2px; }
+    .shop-zone { display:grid; grid-template-columns:200px 1fr; gap:0; border:1px solid var(--border); margin-top:-1px; background:#fafaf8; transition:background .15s; }
+    .shop-zone:hover { background:#f0eeea; }
+    .shop-zone-left { padding:24px; border-right:1px solid var(--border); }
+    .shop-zone-name { font-family:'Playfair Display',serif; font-size:17px; font-weight:400; color:var(--black); margin-bottom:6px; }
+    .shop-zone-type { font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); }
+    .shop-zone-right { padding:24px; }
+    .shop-zone-desc { font-size:14px; color:var(--gray); line-height:1.65; margin-bottom:10px; }
+    .shop-zone-brands { font-size:12px; color:var(--black); line-height:1.6; }
+    .shop-zone-brands::before { content:"Highlights: "; color:var(--accent); font-weight:500; }
+    .shop-tip-box { margin-top:20px; padding:16px 20px; background:#fafaf8; border-left:3px solid var(--accent); font-size:13px; color:var(--gray); line-height:1.65; }
+
+    @media(max-width:900px){ .hoods-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:768px){
+      .meals-section,.hoods-section,.shopping-section{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
+      .meal-row{grid-template-columns:80px 1fr;}
+      .meal-note{display:none;}
+      .hoods-grid{grid-template-columns:1fr;}
+      .shop-zone{grid-template-columns:1fr;}
+      .shop-zone-left{border-right:none;border-bottom:1px solid var(--border);}
+    }
     /* RESTAURANTS */
     .restaurants { padding:80px 48px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:220px 1fr; gap:64px; }
     .resto-intro p { font-size:14px; color:var(--gray); line-height:1.65; margin-top:12px; }
@@ -201,6 +247,8 @@
   <div class="nav-title">Barcelona, Three Days</div>
   <ul class="nav-links">
     <li><a href="#tips">Tips</a></li>
+    <li><a href="#mealtimes">Meal Times</a></li>
+    <li><a href="#neighbourhoods">Areas</a></li>
     <li><a href="#apps">Apps</a></li>
     <li><a href="#phrases">Phrases</a></li>
     <li><a href="#checklist">Checklist</a></li>
@@ -209,6 +257,7 @@
     <li><a href="#day3">Day 3</a></li>
     <li><a href="#tipping">Tipping</a></li>
     <li><a href="#food">Food</a></li>
+    <li><a href="#shopping">Shopping</a></li>
     <li><a href="#restaurants">Restaurants</a></li>
     <li><a href="#safety">Safety</a></li>
   </ul>
@@ -240,6 +289,90 @@
 </section>
 
 
+
+<section class="meals-section" id="mealtimes">
+  <div>
+    <p class="section-label">Very different from the US</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:400;margin-top:12px;letter-spacing:-0.01em;">Meal Times<br><em style="color:var(--gray);">in Spain</em></h2>
+    <p style="font-size:14px;color:var(--gray);margin-top:16px;line-height:1.65;">The biggest culture shock for American visitors. Plan your days around these times — many restaurants are simply closed outside them.</p>
+  </div>
+  <div>
+    <div class="meals-timeline">
+      <div class="meal-row">
+        <div class="meal-time">8–10am</div>
+        <div class="meal-name">☕ Breakfast<br><span style="font-size:12px;font-weight:300;color:var(--gray);">Desayuno</span></div>
+        <div class="meal-note">Light — a coffee and a croissant or toast with tomato. Most cafés open from 8am. Don't expect a full meal.</div>
+      </div>
+      <div class="meal-row">
+        <div class="meal-time">12–2pm</div>
+        <div class="meal-name">🥂 Vermut hour<br><span style="font-size:12px;font-weight:300;color:var(--gray);">L'hora del vermut</span></div>
+        <div class="meal-note">The pre-lunch aperitivo ritual. Bars fill up from noon with locals drinking vermouth and nibbling tapas. Don't miss it.</div>
+      </div>
+      <div class="meal-row">
+        <div class="meal-time">2–4pm</div>
+        <div class="meal-name">🍽️ Lunch<br><span style="font-size:12px;font-weight:300;color:var(--gray);">Almuerzo</span></div>
+        <div class="meal-note">The main meal of the day in Spain — not dinner. Many restaurants offer a fantastic <em>menú del día</em> (3 courses + drink) for €12–15. Don't show up at noon expecting lunch.</div>
+      </div>
+      <div class="meal-row">
+        <div class="meal-time">6–8pm</div>
+        <div class="meal-name">🫒 Tapas / snack<br><span style="font-size:12px;font-weight:300;color:var(--gray);">Merienda</span></div>
+        <div class="meal-note">A light snack or tapas at a bar. Kitchens are often closed between 4 and 8pm — this is the window for snacking.</div>
+      </div>
+      <div class="meal-row">
+        <div class="meal-time">9–11pm</div>
+        <div class="meal-name">🌙 Dinner<br><span style="font-size:12px;font-weight:300;color:var(--gray);">Cena</span></div>
+        <div class="meal-note">Spaniards don't eat dinner before 9pm. Restaurants showing up at 7pm will either be empty or closed. Embrace the late rhythm — it's one of the best things about Spain.</div>
+      </div>
+    </div>
+    <div class="meal-warning"><strong>⚠️ Key warning for Americans:</strong> If you show up to a restaurant at 6pm expecting dinner, most kitchens won't be open yet. Have tapas at the bar to tide you over, then eat dinner at 9pm like the locals.</div>
+  </div>
+</section>
+
+<section class="hoods-section" id="neighbourhoods">
+  <div>
+    <p class="section-label">Know where you are</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:400;margin-top:12px;letter-spacing:-0.01em;">Barcelona<br><em style="color:var(--gray);">Neighbourhoods</em></h2>
+    <p style="font-size:14px;color:var(--gray);margin-top:16px;line-height:1.65;">Barcelona is divided into distinct barrios. Knowing where each one is makes the itinerary much easier to follow.</p>
+  </div>
+  <div class="hoods-grid">
+    <div class="hood-card">
+      <div class="hood-tag">Old Town</div>
+      <div class="hood-name">Gothic Quarter</div>
+      <div class="hood-desc">The medieval heart of Barcelona — narrow lanes, Roman ruins, the Cathedral. The oldest and most atmospheric part of the city.</div>
+      <div class="hood-must">Cathedral, Plaça Reial, Las Ramblas</div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-tag">Old Town</div>
+      <div class="hood-name">El Born</div>
+      <div class="hood-desc">Trendy medieval neighbourhood next to the Gothic Quarter. Best independent shops, cocktail bars, and the beautiful Santa María del Mar basilica.</div>
+      <div class="hood-must">Santa María del Mar, Museu Picasso</div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-tag">Modernisme</div>
+      <div class="hood-name">Eixample</div>
+      <div class="hood-desc">The 19th-century grid district — wide boulevards, Modernista architecture, high-end shopping. This is where most of Gaudí's buildings are.</div>
+      <div class="hood-must">Sagrada Família, Casa Batlló, La Pedrera</div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-tag">Village feel</div>
+      <div class="hood-name">Gràcia</div>
+      <div class="hood-desc">A former independent village absorbed by Barcelona. Feels like a small town — charming squares, local restaurants, no tourists.</div>
+      <div class="hood-must">Plaça del Sol, Casa Vicens, Park Güell</div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-tag">Seafront</div>
+      <div class="hood-name">La Barceloneta</div>
+      <div class="hood-desc">The old fishermen's quarter right on the beach. Sandy streets, seafood restaurants, and the Mediterranean at your feet.</div>
+      <div class="hood-must">Beach, Port Olímpic, seafood restaurants</div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-tag">Mountain</div>
+      <div class="hood-name">Montjuïc</div>
+      <div class="hood-desc">The green hill overlooking the city and port. Home to the castle, the 1992 Olympic Ring, MNAC, and the Magic Fountain.</div>
+      <div class="hood-must">Castle, MNAC, Font Màgica, cable car</div>
+    </div>
+  </div>
+</section>
 <section class="apps-section" id="apps">
   <div>
     <p class="section-label">Download before you go</p>
@@ -619,6 +752,79 @@
         <div class="food-order">"Unos boquerones en vinagre"</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="shopping-section" id="shopping">
+  <div>
+    <p class="section-label">Retail therapy</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:400;margin-top:12px;letter-spacing:-0.01em;">Shopping<br><em style="color:var(--gray);">in Barcelona</em></h2>
+    <p style="font-size:14px;color:var(--gray);margin-top:16px;line-height:1.65;">Barcelona is one of Europe's great shopping cities. From luxury flagship stores to local boutiques and markets — all within walking distance.</p>
+  </div>
+  <div>
+    <div class="shopping-zones">
+      <div class="shop-zone">
+        <div class="shop-zone-left">
+          <div class="shop-zone-name">Passeig de Gràcia</div>
+          <div class="shop-zone-type">Luxury · Flagship stores</div>
+        </div>
+        <div class="shop-zone-right">
+          <div class="shop-zone-desc">Barcelona's most prestigious boulevard — the equivalent of 5th Avenue in New York or Bond Street in London. Also home to the most spectacular Modernista buildings. Walk the full length and window-shop the architecture as much as the stores.</div>
+          <div class="shop-zone-brands">Chanel, Louis Vuitton, Gucci, Hermès, Loewe, Zara flagship, Massimo Dutti, Mango HQ</div>
+        </div>
+      </div>
+      <div class="shop-zone">
+        <div class="shop-zone-left">
+          <div class="shop-zone-name">Rambla de Catalunya</div>
+          <div class="shop-zone-type">Mid-range · Local brands</div>
+        </div>
+        <div class="shop-zone-right">
+          <div class="shop-zone-desc">The elegant pedestrian boulevard running parallel to Passeig de Gràcia — less touristy and more local. Great for Spanish brands, independent boutiques, and café terraces. One of the best streets for a relaxed afternoon stroll and shopping.</div>
+          <div class="shop-zone-brands">Spanish fashion boutiques, shoe shops, jewellers, cafés with terraces</div>
+        </div>
+      </div>
+      <div class="shop-zone">
+        <div class="shop-zone-left">
+          <div class="shop-zone-name">Portal de l'Àngel</div>
+          <div class="shop-zone-type">High street · Mass market</div>
+        </div>
+        <div class="shop-zone-right">
+          <div class="shop-zone-desc">One of the busiest pedestrian shopping streets in Europe — a non-stop flow of shoppers from Plaça Catalunya all the way down to the Gothic Quarter. Fast fashion, international chains, and packed at all hours. Watch your pockets here.</div>
+          <div class="shop-zone-brands">H&M, Zara, Bershka, Pull&Bear, Stradivarius, El Corte Inglés</div>
+        </div>
+      </div>
+      <div class="shop-zone">
+        <div class="shop-zone-left">
+          <div class="shop-zone-name">Plaça Catalunya</div>
+          <div class="shop-zone-type">Anchor · Department store</div>
+        </div>
+        <div class="shop-zone-right">
+          <div class="shop-zone-desc">The central hub of Barcelona's shopping district. The massive El Corte Inglés department store here has 9 floors of everything — fashion, electronics, food hall, and a rooftop restaurant with great city views. A useful reference point and meeting place.</div>
+          <div class="shop-zone-brands">El Corte Inglés (9 floors), FNAC, Apple Store nearby</div>
+        </div>
+      </div>
+      <div class="shop-zone">
+        <div class="shop-zone-left">
+          <div class="shop-zone-name">El Born</div>
+          <div class="shop-zone-type">Independent · Unique finds</div>
+        </div>
+        <div class="shop-zone-right">
+          <div class="shop-zone-desc">The best neighbourhood for one-of-a-kind shopping. Independent designers, vintage clothing, art galleries, concept stores, and craft shops fill the narrow medieval streets. If you want something no one else will have back home, shop here.</div>
+          <div class="shop-zone-brands">Local designers, vintage stores, ceramics, jewellery, art prints</div>
+        </div>
+      </div>
+      <div class="shop-zone">
+        <div class="shop-zone-left">
+          <div class="shop-zone-name">La Boqueria Market</div>
+          <div class="shop-zone-type">Food · Souvenirs</div>
+        </div>
+        <div class="shop-zone-right">
+          <div class="shop-zone-desc">Barcelona's famous covered market on Las Ramblas. Great for food souvenirs to bring home — saffron, paprika, jamón, olive oil, local wines, and cava. Go in the morning for the best produce and fewer tourists. Prices are higher than a local supermarket but it's the experience that counts.</div>
+          <div class="shop-zone-brands">Saffron, paprika, jamón ibérico, local wine, cava, olive oil, turron</div>
+        </div>
+      </div>
+    </div>
+    <div class="shop-tip-box">💡 <strong>Shopping hours:</strong> Most shops open Mon–Sat 10am–9pm. Many are closed on Sundays, especially smaller boutiques. El Corte Inglés is open 7 days. Sales season (rebajas): January and July — up to 70% off.</div>
   </div>
 </section>
 <section class="restaurants" id="restaurants">
