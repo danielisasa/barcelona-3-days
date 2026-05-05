@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#b85c38"/>
+  
+  <!-- Sagrada Família silhouette -->
+  <!-- Central tower (tallest) -->
+  <rect x="14.5" y="4" width="3" height="20" fill="white"/>
+  <polygon points="16,2 14.5,6 17.5,6" fill="white"/>
+  
+  <!-- Left main tower -->
+  <rect x="9" y="8" width="2.5" height="16" fill="white"/>
+  <polygon points="10.25,5.5 9,9 11.5,9" fill="white"/>
+  
+  <!-- Right main tower -->
+  <rect x="20.5" y="8" width="2.5" height="16" fill="white"/>
+  <polygon points="21.75,5.5 20.5,9 23,9" fill="white"/>
+  
+  <!-- Far left tower -->
+  <rect x="4.5" y="11" width="2" height="13" fill="white"/>
+  <polygon points="5.5,9 4.5,12 6.5,12" fill="white"/>
+  
+  <!-- Far right tower -->
+  <rect x="25.5" y="11" width="2" height="13" fill="white"/>
+  <polygon points="26.5,9 25.5,12 27.5,12" fill="white"/>
+
+  <!-- Base / facade -->
+  <rect x="4" y="24" width="24" height="4" rx="1" fill="white"/>
+  
+  <!-- Rose window -->
+  <circle cx="16" cy="18" r="2" fill="#b85c38" stroke="white" stroke-width="0.5"/>
+</svg>
